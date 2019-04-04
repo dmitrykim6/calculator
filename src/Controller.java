@@ -1,14 +1,14 @@
 import java.awt.event.ActionListener;
-import java.awt.event.ActinEvent;
+import java.awt.event.ActionEvent;
 
 class Controller implements ActionListener{
     Model model;
     Controller (Viewer viewer){
-        model = new Model(Viewer);
+        model = new Model(viewer);
     }
 
     public void actionPerformed(ActionEvent event){
-        String command = event.getAvtionCommand();
+        String command = event.getActionCommand();
         model.doAction(command);
     }
 
