@@ -1,14 +1,20 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.Font;
+import java.awt.Toolkit;
 
 
-public class Viewer {
+
+class Viewer {
     JTextField textField; //
 
     Viewer(){
+
         Controller controller = new Controller(this); // create object by class Controller
 
-        textField = new JTextField();
+        textField = new JTextField(); // Создаем новый слой
+
         Font fontTextField = new Font("SansSerif", Font.PLAIN, 20);
         Font fontButton = new Font("SansSerif", Font.PLAIN, 10);
         Font fontButtonDigit = new Font("SansSerif", Font.PLAIN, 18);
@@ -86,11 +92,11 @@ public class Viewer {
         buttonSeven.addActionListener(controller);
         buttonSeven.setActionCommand("Seven");
 
-        JButton buttonEleven = new JButton("8");
-        buttonEleven.setFont(fontButtonDigit);
-        buttonEleven.setBounds(78,230,50,40);
-        buttonEleven.addActionListener(controller);
-        buttonEleven.setActionCommand("Eleven");
+        JButton buttonEight = new JButton("8");
+        buttonEight.setFont(fontButtonDigit);
+        buttonEight.setBounds(78,230,50,40);
+        buttonEight.addActionListener(controller);
+        buttonEight.setActionCommand("Eight");
 
         JButton buttonNine = new JButton("9");
         buttonNine.setFont(fontButtonDigit);
@@ -213,7 +219,7 @@ public class Viewer {
         frame.add(buttonPlusMinus);
         frame.add(buttonQRoot);
         frame.add(buttonSeven);
-        frame.add(buttonEleven);
+        frame.add(buttonEight);
         frame.add(buttonNine);
         frame.add(buttonDivide);
         frame.add(buttonPercent);
@@ -234,23 +240,9 @@ public class Viewer {
         frame.setVisible(true);
 
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-        textField = new JTextField(); // Создаем новый слой
-
-
-
-
+    public void update(String text){  // метод update для обновления информации на экране
+        textField.setText(text);
     }
 }
