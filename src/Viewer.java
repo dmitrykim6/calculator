@@ -15,7 +15,7 @@ class Viewer {
 
         textField = new JTextField(); // Создаем новый слой
 
-        Font fontTextField = new Font("SansSerif", Font.PLAIN, 20);
+        Font fontTextField = new Font("SansSerif", Font.PLAIN, 30);
         Font fontButton = new Font("SansSerif", Font.PLAIN, 10);
         Font fontButtonDigit = new Font("SansSerif", Font.PLAIN, 18);
 
@@ -189,7 +189,7 @@ class Viewer {
         buttonPoint.setFont(fontButton);
         buttonPoint.setBounds(138,380,50,40);
         buttonPoint.addActionListener(controller);
-        buttonPoint.setActionCommand("Point");
+        buttonPoint.setActionCommand("dot");
 
         JButton buttonPlus = new JButton("+");
         buttonPlus.setFont(fontButtonDigit);
@@ -239,10 +239,41 @@ class Viewer {
 
         frame.setVisible(true);
 
-
+        update("0");
     }
 
+
     public void update(String text){  // метод update для обновления информации на экране
+
+
+
+//        int dot = text.indexOf(".");
+//        String beforeDot = text.substring(0, dot);
+//        String afterDot = text.substring(dot,text.length());
+//
+//        textField.setText(beforeDot + afterDot);
+
+
+        int whereDot = text.indexOf('.');
+        if(whereDot > 0) {
+
+            String afterDot = text.substring(whereDot+1, text.length());
+            int afterDotDig = 0;
+            if(afterDot.length() > 0) {
+                afterDotDig = Integer.parseInt(afterDot);
+                if (afterDotDig == 0){
+                    text = text.substring(0, whereDot);
+                }
+            }
+
+            System.out.println("afterDotDig " + afterDotDig);
+            System.out.println("afterDot " + afterDot);
+        }
+
+//        if(text.length() > 12){
+//            text = text.substring(0,12);
+//        }
+
         textField.setText(text);
     }
 }
